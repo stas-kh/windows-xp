@@ -8,7 +8,7 @@ A simple implementation of Windows XP in browser.
 4. Angular 1.5
 
 ## Installation
-1. Clone the repository: `git clone git@github.com:stas-kh/windows-xp`
+1. Clone the repository: `git clone https://github.com/stas-kh/windows-xp`
 2. Install the application: `npm install` or `yarn install`
 3. Run `grunt` command in the project root
 4. Open index.html in your browser
