@@ -1,0 +1,204 @@
+$desktop-width: 1024px;
+$desktop-height: 768px;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: silver;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.centerized {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.to-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.to-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.desktop-container {
+  background: url("../assets/windows-xp.jpg");
+  background-size: cover;
+  width: $desktop-width;
+  height: $desktop-height;
+  @extend .centerized;
+}
+
+.start-menu {
+  background-color: #235ddb;
+  height: 30px;
+  width: 100%;
+  @extend .to-bottom-left;
+  .right-bar {
+	width: 150px;
+	height: 100%;
+	color: white;
+	@extend .to-bottom-right;
+	> div {
+	  float: right;
+	  padding: 5px;
+	}
+	.lang-box:hover {
+	  background: skyblue;
+	  cursor: default;
+	}
+	.arrow-top {
+	  border: 1px solid transparent;
+	  font-size: 10px;
+	  margin: 3px;
+	  &:hover {
+		border: 1px solid white;
+		border-radius: 2px;
+		cursor: default;
+	  }
+	}
+  }
+
+  .windows-icon {
+	background-image: url("../assets/start-button.png");
+	background-position: 0 96px;
+	width: 102px;
+	height: 30px;
+	cursor: pointer;
+	&:hover {
+	  background-position: 0 42px;
+	}
+	&:active {
+	  background-position: 0 -12px;
+	}
+  }
+}
+
+.icon-container {
+  width: 75px;
+  height: 75px;
+  float: left;
+  clear: both;
+  margin: 10px;
+  cursor: pointer;
+  > .icon {
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+  }
+  > .icon-title {
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+	color: white;
+	overflow: hidden;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+}
+
+.explorer-panel {
+  width: 72%;
+  height: 70%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  @extend .centerized;
+  &.expanded {
+	width: 100%;
+	height: calc(100% - 30px);
+	top: 0;
+	left: 0;
+	transform: none;
+	border-radius: 0;
+  }
+  header {
+	height: 35px;
+	padding: 5px;
+	background: #0055e7;
+	.title {
+	  color: white;
+	  padding: 3px;
+	}
+	.action-panel {
+	  overflow: hidden;
+	  float: right;
+	  button {
+		cursor: pointer;
+		padding: 3px 5px;
+		height: 25px;
+		border: 1px solid white;
+		float: right;
+		text-align: center;
+		color: white;
+		margin: 0 2.5px;
+		outline: none;
+		background: inherit;
+		&.close-window {
+		  background: #e75529;
+		  &:hover:enabled {
+			background: #dc1b44;
+		  }
+		}
+		&.roll-up {
+		  padding-top: 6px;
+		}
+		&:hover:enabled {
+		  background: #87ceeb;
+		}
+		&:disabled {
+		  border-color: silver;
+		  color: silver;
+		}
+	  }
+	}
+  }
+  .explorer-area {
+	max-height: calc(100% - 35px);
+	overflow: auto;
+	> .explorer-item {
+	  width: 80px;
+	  height: 90px;
+	  margin: 20px;
+	  float: left;
+	  padding-top: 5px;
+	  &:hover {
+		background: rgba(0, 85, 231, 0.3);
+		border-radius: 5px;
+	  }
+	  .file, .folder {
+		width: 50px;
+		height: 50px;
+		background-size: cover;
+		margin: 0 auto;
+	  }
+	  .file {
+		background-image: url("../assets/file-icon.png");
+	  }
+	  .folder {
+		background-image: url("../assets/folder-icon.png");
+	  }
+	  .name {
+		text-align: center;
+		word-wrap: break-word;
+	  }
+	}
+  }
+}

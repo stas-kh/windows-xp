@@ -1,0 +1,20 @@
+<div class="explorer-panel" data-ng-class="{'expanded': $ctrl.isExpanded}">
+	<header>
+		<div class="action-panel">
+			<button class="close-window" ng-click="$ctrl.actionEvent()">&#x2716;</button>
+			<button class="expand-panel" ng-click="$ctrl.isExpanded = !$ctrl.isExpanded">&#x25a1;</button>
+			<button disabled="disabled" class="roll-up">&#x2212;</button>
+		</div>
+		<div class="title">{{$ctrl.data.title}}</div>
+	</header>
+	<section class="explorer-area">
+		<div class="explorer-item" ng-repeat="folder in $ctrl.data.items.folders track by $index">
+			<div class="folder"></div>
+			<div class="name">{{folder}}</div>
+		</div>
+		<div class="explorer-item" ng-repeat="file in $ctrl.data.items.files track by $index">
+			<div class="file"></div>
+			<div class="name">{{file}}</div>
+		</div>
+	</section>
+</div>

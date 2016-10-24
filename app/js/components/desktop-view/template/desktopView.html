@@ -1,0 +1,5 @@
+<div class="desktop-container">
+	<desktop-icon ng-repeat="icon in $ctrl.data.icons track by $index" icon-info="icon" action-event="$ctrl.openExplorer"></desktop-icon>
+
+	<explorer-panel ng-if="$ctrl.isExplorerShown" data="$ctrl.dataInExplorer" action-event="$ctrl.closeExplorer" is-expanded="false"></explorer-panel>
+</div>
